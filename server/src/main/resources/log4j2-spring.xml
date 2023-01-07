@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="60" name="server" >
+	<Properties>
+		<Property name="log-path">logs</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n</pattern>
+			</PatternLayout>
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="activity-log"></Logger>
+		<Root level="info">
+			<AppenderRef ref="Console"  level="INFO"></AppenderRef>
+			<AppenderRef ref="file-log" level="OFF"/>
+		</Root>
+        <Logger name="com.netflix.discovery" level="INFO" additivity="false">
+            <AppenderRef ref="Console"  level="INFO"/>
+            <AppenderRef ref="file-log" level="OFF"/>
+        </Logger>
+	</Loggers>
+</Configuration>
